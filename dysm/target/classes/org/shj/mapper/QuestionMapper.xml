@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="org.shj.mapper.QuestionMapper">
+
+<insert id="insertSelectKey">
+	<!-- insert 하기 전에 selectKey가 실행됨 -->
+	<selectKey keyProperty="qno" order="BEFORE" resultType="long">
+	select max(qno)+1 from tbl_question
+	</selectKey>
+	insert into tbl_question (qno, title, content, writer)
+	values (#{qno}, #{title}, #{content}, #{writer}) <!-- 위에서 얻은 qno값 들어감 -->
+</insert>
+
+<select id="getList" resultType="org.shj.domain.QuestionVO">
+	select * from tbl_question
+</select>
+
+<select id="getListWithPaging" resultType="org.shj.domain.QuestionVO">
+	<![CDATA[
+	select qno, title, content, writer, wriDate, updateDate
+	from (select @rownum:=@rownum+1 as rn, qno, title, content, writer, wriDate, updateDate
+		from (select @rownum:=0) as tmp, tbl_question
+		order by qno desc
+			) questionList
+	where rn > (#{pageNum} -1) * #{amount} and rn <= #{pageNum} * #{amount}
+	]]>
+</select>
+
+<select id="read" resultType="org.shj.domain.QuestionVO">
+	select * from tbl_question where qno = #{qno}
+</select>
+
+<select id="getTotalCount" resultType="int">
+	select count(*) from tbl_question
+</select>
+
+<update id="update">
+	update tbl_question
+	set title = #{title},
+		 content = #{content},
+		 updateDate = curdate() <!-- 현재시간 -->
+	where qno = #{qno}
+</update>
+
+<delete id="delete">
+	delete from tbl_question where qno = #{qno}
+</delete>
+
+</mapper>

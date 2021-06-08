@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+/* 폰트(Noto Sans KR) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap');
+
+
+/* 반응형 */
+@media(max-width:992px){
+	.navbar-brand{
+		width:100%;
+		border-right:0;
+		padding:0;
+	}
+	.navbar-toggler{float:right;}
+	.nav-link{text-align:right;}
+	.dropdown-menu{float:right;}
+}
+
+
+
+/* nav */
+nav div.container-fluid{
+	width:1280px;
+}
+div.container-fluid > div.navbar-brand{
+	border-right:1px gray solid;
+	padding:0 20px;
+}
+.navbar-nav{width:100%;}
+li.nav-item{margin:0 10px;}
+div.dropdown-menu{
+	background:#212529;
+	border:1px gray solid;
+	min-width:1rem;
+}
+a.dropdown-item{color:lightgray;}
+div.dropdown-divider{background:gray;}
+li.nav-item:nth-child(4){
+	margin-left:auto;
+	border:1px solid #ffffff8c;
+	border-radius:.25rem;
+	background:#00000000;
+}
+li.nav-item:nth-child(5){
+	border:1px solid #ffffff8c;
+	border-radius:.25rem;
+	background:#00000000;
+}
+li.nav-item button{
+	background:#00000000;
+	border:0;
+}
+
+
+
+/* section */
+section .container{
+	width:1280px;
+	margin:0 auto;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+section h1{
+	text-align:center;
+	font-family: 'Noto Sans KR', sans-serif
+}
+
+#main-section .background{width:100%;}
+
+#intro-section .content{
+	width:60%;
+	margin:5rem auto;
+}
+#intro-section .profile{
+	float:right;
+	margin-left:1rem;
+	text-align:center;
+	border:lightgray 1px solid; 
+}
+#intro-section img{width:12rem;}
+
+#signup-section .content{
+	width:25rem;
+	margin:5rem auto;
+}
+#signup-section .mb-3{margin-bottom:0!important;}
+#signup-section label{font-weight:600;}
+#signup-section .req{color:orangered;}
+#signup-section .no-req{color:darkgray;}
+#signup-section button{
+	width:8rem;
+	background:darkgray;
+	color:lightgray;
+}
+#signup-section button:not([type=button]){
+	width:25rem; height:3rem;
+	font-weight:400;
+}
+#signup-section button span{margin:0 auto;}
+#signup-section span.msg{font-weight:300;}
+
+#personal-section .content{
+	width:25rem;
+	margin:5rem auto;
+}
+#personal-section button{
+	width:8rem;
+	background:darkgray;
+	color:lightgray;
+}
+#personal-section button:not([type=button]){
+	width:16rem; height:3rem;
+	font-weight:400;
+}
+#personal-section #withdraw-btn{
+	margin-left:auto;
+	color:black;
+	background:lightgray;
+}
+#personal-section button span{margin:0 auto;}
+
+
+
+#login-section .content{
+	width:25rem;
+	margin:5rem auto;
+}
+#login-section .content span{
+	margin:0 auto;
+	width:5.5rem;
+	font-weight:600;
+}
+#login-section button{
+	width:100%; height:3rem;
+	margin-bottom:1rem;
+	background:#212529;
+	color:lightgray;
+}
+#login-section .login-menu{text-align:center;}
+#login-section .login-menu a{
+	padding:0 10px;
+	border-right:1px solid lightgray;
+	text-decoration:none;
+	color:#212529;
+	font-weight:400;
+}
+#login-section .login-menu a:last-child{border-right:0;}
+
+
+#question-list-section .content{
+	width:50rem;
+	margin:5rem auto;
+}
+#question-list-section tr:nth-child(2n){background:#eeeeee;}
+#question-list-section th:first-child, td:first-child{
+	width:15%;
+	text-align:center;
+}
+#question-list-section th:nth-child(2){text-align:center;}
+#question-list-section td:nth-child(2){padding:0 3rem;}
+#question-list-section th:last-child, td:last-child{
+	width:25%;
+	text-align:center;
+}
+#question-list-section .pagination{justify-content:center;}
+#question-list-section .question-line:hover{cursor:pointer;}
+
+#personal-list-section .content{
+	width:25rem;
+	margin:5rem auto;
+}
+
+#question-register-section .content{
+	width:60%;
+	margin:5rem auto;
+}
+
+#question-get-section .content{
+	width:60%;
+	margin:5rem auto;
+}
+
+#question-modify-section .content{
+	width:60%;
+	margin:5rem auto;
+}
+
+#product1-section .content{
+	width:70%;
+	margin:5rem auto;
+	text-align:center;
+}
+#product1-section img{width:30rem;}
+#product1-section .box{
+	display:flex;
+}
+
+#product2-section .content{
+	width:50%;
+	margin:5rem auto;
+}
+#product2-section h4{text-align:center;}
+#product2-section .image{
+	display:flex;
+	justify-content:center;
+}
+
+
+
+
+/* footer */
+footer{
+	background:#212529;
+	color:lightgray;
+	display:flex;
+	justfy-content:center;
+	font-size:0.9rem;
+}
+footer div{
+	margin:0 auto;
+	width:670px;
+}
+footer div div:last-child{text-align:center;}
+footer span{color:#999999;}
+footer span:not(.none){
+	border-left:1px gray solid;
+	margin-left:15px;
+	padding-left:15px;
+}

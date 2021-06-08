@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.shj.mapper.MemberMapper"> <!-- 매퍼인터페이스 연결 -->
+
+<insert id="insert"> <!-- 회원가입 -->
+	insert into tbl_member(id, password, email, phone)
+	values(#{id},#{password},#{email},#{phone})
+</insert>
+
+<select id="idDuplication" resultType="int"> <!-- ID 중복확인 -->
+	select count(*) from tbl_member
+	where id = #{id}
+</select>
+
+<select id="login" resultType="org.shj.domain.MemberVO"> <!-- 로그인 -->
+	select * from tbl_member
+	where id = #{id} and password = #{password}
+</select>
+
+<select id="getPersonal" resultType="org.shj.domain.MemberVO"> <!-- 개인정보 -->
+	select * from tbl_member where id = #{id}
+</select>
+
+<update id="update"> <!-- 개인정보 수정 -->
+	update tbl_member
+	set password = #{password}, email = #{email}, phone = #{phone}
+	where id = #{id}
+</update>
+
+<delete id="delete"> <!-- 회원탈퇴 -->
+	delete from tbl_member where (id = #{id}) and (password = #{password})
+</delete>
+
+</mapper>
