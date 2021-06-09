@@ -37,7 +37,7 @@
 						</tbody>
 					</table>
 					
-					<c:if test="${!empty memberId}">
+					<c:if test="${!empty member}">
 						<form method="get" action="/question/register">
 							<button class="input-group-text">글쓰기</button>
 						</form>

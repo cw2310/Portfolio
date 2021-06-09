@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.shj.mapper.ReplyMapper">
+
+	<insert id="insert">
+	insert into tbl_reply (qno, reply, replyer)
+	values (#{qno}, #{reply}, #{replyer})
+	</insert>
+	
+	<select id="read" resultType="org.shj.domain.ReplyVO">
+		select * from tbl_reply where rno = #{rno}
+	</select>
+	
+	<select id="getListWithPaging" resultType="org.shj.domain.ReplyVO">
+	<![CDATA[
+ 	select qno, rno, reply, replyer, replyDate, updateDate
+ 	from(select @rownum:=@rownum+1 as rn, qno, rno, reply, replyer, replyDate, updateDate
+			from(select @rownum:=0) as rn, tbl_reply
+			where qno = #{qno}
+			order by qno asc, rno asc) as replyList
+	where rn > (#{cri.pageNum}-1) * 10 and rn <= (#{cri.pageNum} * #{cri.amount})
+ 	]]>
+	</select>
+	
+	<select id="getCountByQno" resultType="int">
+		select count(rno) from tbl_reply where qno = #{qno}
+	</select>
+
+	<delete id="delete">
+		delete from tbl_reply where rno = #{rno}
+	</delete>
+
+	<update id="update">
+		update tbl_reply set reply = #{reply}, updateDate = curdate()
+		where rno = #{rno}
+	</update>
+
+</mapper>
