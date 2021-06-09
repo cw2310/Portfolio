@@ -61,12 +61,12 @@
         <li class="nav-item">
           <a class="nav-link" href="/question/list">문의사항</a>
         </li>
-        <c:if test="${empty memberId}"> <!-- empty (null 또는 "")일 때 true -->
+        <c:if test="${empty member}"> <!-- empty (null 또는 "")일 때 true -->
         	 <li class="nav-item">
 		  		<a class="nav-link" id="goto-login" href="/login">로그인</a>
 		    </li>
 		   </c:if>
-		   <c:if test="${!empty memberId}">
+		   <c:if test="${!empty member}">
 		   	<li class="nav-item">
 <!-- 		   		<form method="post" action="/member/personal"> -->
 <!-- 	    				<button class="nav-link" id="personal-botn">개인정보</button> -->

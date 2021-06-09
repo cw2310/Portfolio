@@ -9,7 +9,7 @@
 		<div class="content">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="page-header">글쓰기</h1>
+					<h1 class="page-header">문의하기</h1>
 					<br><br><hr><br><br>
 				</div>
 				<!-- /.col-lg-12 -->
